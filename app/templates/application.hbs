@@ -1,5 +1,21 @@
-{{!-- The following component displays Ember's default welcome message. --}}
-{{welcome-page}}
-{{!-- Feel free to remove this! --}}
+{{#paper-list}}
 
-{{outlet}}
+  {{#paper-subheader}}Clickable Items with Secondary Controls{{/paper-subheader}}
+  {{#paper-item  as |controls|}}
+    {{paper-icon "network-wifi"}}
+    <p>Wi-Fi</p>
+    <div class="md-secondary-container">
+      {{controls.switch secondary=true value=wifiEnabled onChange=(action (mut wifiEnabled))}}
+    </div>
+  {{/paper-item}}
+  {{#paper-item  as |controls|}}
+    {{paper-icon "bluetooth"}}
+    <p>Bluetooth</p>
+    <div class="md-secondary-container">
+      {{controls.switch secondary=true value=bluetoothEnabled onChange=(action (mut bluetoothEnabled))}}
+    </div>
+  {{/paper-item}}
+  
+  {{paper-divider}}
+
+{{/paper-list}}
